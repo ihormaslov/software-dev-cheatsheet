@@ -61,3 +61,5 @@ VACUUM — garbage-collect and optionally analyze a database
 
 # [What is EXPLAIN](https://www.postgresql.org/docs/12/sql-explain.html)
 EXPLAIN — show the execution plan of a statement
+EXPLAIN ANALYZE - Carry out the command and show actual run times and other statistics. This parameter defaults to FALSE.
+
