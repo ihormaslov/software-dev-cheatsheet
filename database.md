@@ -1,17 +1,24 @@
 # DBMS
 The database management system (DBMS) is the software that interacts with end users, applications, and the database itself to capture and analyze the data. The DBMS software additionally encompasses the core facilities provided to administer the database. The sum total of the database, the DBMS and the associated applications can be referred to as a "database system". Often the term "database" is also used to loosely refer to any of the DBMS, the database system or an application associated with the database.
 
-# What is transaction
-A transaction symbolizes a unit of work performed within a database management system (or similar system) against a database, and treated in a coherent and reliable way independent of other transactions. A transaction generally represents any change in a database. Transactions in a database environment have two main purposes:
+# [What is transaction](https://www.tutorialspoint.com/sql/sql-transactions.htm)
+A transaction is a unit of work that is performed against a database. Transactions are units or sequences of work accomplished in a logical order, whether in a manual fashion by a user or automatically by some sort of a database program.
+A transaction begins with the first executable SQL statement. A transaction ends when it is committed or rolled back, either explicitly with a `COMMIT` or `ROLLBACK` statement or implicitly when a DDL statement is issued.
 
-- To provide reliable units of work that allow correct recovery from failures and keep a database consistent even in cases of system failure, when execution stops (completely or partially) and many operations upon a database remain uncompleted, with unclear status.
-- To provide isolation between programs accessing a database concurrently. If this isolation is not provided, the programs' outcomes are possibly erroneous.
+# Properties of Transactions
+Transactions have the following four standard properties, usually referred to by the acronym ACID.
+- **Atomicity** − ensures that all operations within the work unit are completed successfully. Otherwise, the transaction is aborted at the point of failure and all the previous operations are rolled back to their former state.
+- **Consistency** − ensures that the database properly changes states upon a successfully committed transaction.
+- **Isolation** − enables transactions to operate independently of and transparent to each other.
+- **Durability** − ensures that the result or effect of a committed transaction persists in case of a system failure.
 
-In a Database Management System, a transaction is a single unit of logic or work, sometimes made up of multiple operations. Any logical calculation done in a consistent mode in a database is known as a transaction. One example is a transfer from one bank account to another: the complete transaction requires subtracting the amount to be transferred from one account and adding that same amount to the other.
+# Transaction Control
+The following commands are used to control transactions.
 
-A database transaction, by definition, must be atomic, consistent, isolated and durable. Database practitioners often refer to these properties of database transactions using the acronym ACID.
-
-Transactions provide an "all-or-nothing" proposition, stating that each work-unit performed in a database must either complete in its entirety or have no effect whatsoever. Further, the system must isolate each transaction from other transactions, results must conform to existing constraints in the database, and transactions that complete successfully must get written to durable storage.
+- **COMMIT** − to save the changes.
+- **ROLLBACK** − to roll back the changes.
+- **SAVEPOINT** − creates points within the groups of transactions in which to ROLLBACK.
+- **SET TRANSACTION** − Places a name on a transaction.
 
 # Isolation
 As we know that, in order to maintain consistency in a database, it follows ACID properties. Among these four properties (Atomicity, Consistency, Isolation and Durability) Isolation determines how transaction integrity is visible to other users and systems. It means that a transaction should take place in a system in such a way that it is the only transaction that is accessing the resources in a database system.
@@ -34,3 +41,23 @@ Based on these phenomena, The SQL standard defines four isolation levels :
 | Read Committed | Don't Occur | May Occur | May Occur |
 | Repeatable Read | Don't Occur | Don't Occur | May Occur |
 | Serializable | Don't Occur | Don't Occur | Don't Occur |
+
+# What is a Database Cursor?
+A cursor is a temporary work area created in the system memory when a SQL statement is executed. A cursor contains information on a select statement and the rows of data accessed by it.
+
+# [Difference Between MySQL and PostgreSQL](https://techdifferences.com/difference-between-mysql-and-postgresql.html)
+Key Differences Between MySQL and PostgreSQL
+1. The architectural difference between MySQL and PostgreSQL is that MySQL is a relational database management system whereas, PostgresSQL is object-relational database management system.
+2. MySQL is supported by the following operating system, Windows, Mac OS X, Linux, BSD, UNIX, z/OS, Symbian, AmigaOS. However, the PostgreSQL  is supported by Windows, Mac OS X, Linux and BSD but not by UNIX, z/OS, Symbian, AmigaOS.
+3. MySQL is the product of Oracle Corporation while PostgreSQL is a product of Global Development Group.
+4. My SQL programming language is not extensible whereas, the programming language PostgreSQL is highly extensible.
+5. In MySQL, the phpMyAdmin tool provides GUI and SQL interface. However, in PostgreSQL, the pgAdmin tool provides GUI and SQL interface.
+6. In MySQL, Mysqldump, and XtraBackup tools provides backup. On the other hands, PostgresSQL provides complete backup online.
+7. MySQL provides temporary tables but does not provide materialized view. However, PostgreSQL provides temporary table and also the materialized view.
+8. MySQL does not offers data domain object whereas, PostgreSQL provide data domain object.
+
+# [What is VACUUM in PostgreSQL](https://www.postgresql.org/docs/12/sql-vacuum.html)
+VACUUM — garbage-collect and optionally analyze a database
+
+# [What is EXPLAIN](https://www.postgresql.org/docs/12/sql-explain.html)
+EXPLAIN — show the execution plan of a statement
